@@ -137,9 +137,9 @@
 #' @export
 cja_freeform_table <- function(dataviewId = Sys.getenv("CJA_DATAVIEW_ID"),
                                date_range = c(Sys.Date()-30, Sys.Date()-1),
-                               dimensions = c('page', 'lasttouchchannel', 'mobiledevicetype'),
+                               dimensions = c('daterangeday'),
                                metrics = c("visits", "visitors"),
-                               top = c(5),
+                               top = c(0),
                                page = 0,
                                filterType = 'breakdown',
                                segmentId = NA,

@@ -55,9 +55,9 @@ library(cjar)
 There are four setup steps required to start accessing your Customer Journey Analytics data using Server-to-Server (S2S) OAuth. The following steps are each outlined in greater detail in the following sections:
 
   1. Create an Adobe Console API Project
-  2. Create and add the S2S file link environment variable to your `.Renviron` file.
-  3. Get your authorization token by using the function `cja_auth()`.
-  4. Get the `Data View ID` by using the function `cja_get_dataviews()`.
+  2. Set up the `.Renviron` file
+  3. Get your access token using `cja_auth()`.
+  4. Get the Data View ID using `cja_get_dataviews()`.
 
 #### 1. Create an Adobe Console API Project
 
@@ -87,7 +87,7 @@ Once you are a developer for a CJA product profile, you can create an API client
 This file is essential to keeping your information secure. It also speeds up analysis by limiting the number of arguments you need to add to every function call. 
 
   1. If you do not have an `.Renviron` file (if you have never heard of this file you almost certainly don't have one!), then create a new file and save it with the name `.Renviron`. You can do this from within the RStudio environment and save the file either in your `Home` directory (which is recommended; click on the **Home** button in the file navigator in RStudio and save it to that location) _or_ within your project's working directory. You can also use the ["usethis"](https://usethis.r-lib.org/reference/edit.html) package to create the file by running the function `edit_r_environ(scope = "user")`
-  2. Add the variables, listed below, to the `.Renviron` file using the file location path of the JSON file. The format of variables in the `.Renviron` file is straightforward.
+  2. Add the variable, listed below, to the `.Renviron` file using the file location path of the JSON file. The format of variables in the `.Renviron` file is straightforward.
   
 ```
 ## S2S creds ##
@@ -104,6 +104,12 @@ The token is actually a lonnnnng alphanumeric string that is the what ultimately
 1. In the console, enter `cja_auth()` and press _Enter_.
 2. In the Console window you should see "Successfully authenticated with S2S: access token valid until ...."
 3. If you do not see this message then go back and repeat the previous steps to make sure you did not miss something.
+
+***note:** If you get the following response it is due to not having the Experience Platform API added to the project.*
+```
+"error_code": "403027",
+"message": "User region is missing"
+```
 
 #### 4. Get the Data View ID
 
