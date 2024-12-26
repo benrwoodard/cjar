@@ -7,7 +7,7 @@
 \alias{auth_s2s}
 \title{Generate an access token for the Customer Journey Analytics API}
 \usage{
-cja_auth(type = "jwt", ...)
+cja_auth(type = "s2s", ...)
 
 auth_jwt(
   file = Sys.getenv("CJA_AUTH_FILE"),
