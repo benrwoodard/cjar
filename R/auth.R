@@ -2,10 +2,10 @@
 
 #' Generate an access token for the Customer Journey Analytics API
 #'
-#' **Note:** `cja_auth()` is the primary function used for authorization. `auth_oauth()`
+#' **Note:** `cja_auth()` is the primary function used for authorization. `auth_s2s()`
 #' and `auth_jwt()` should typically not be called directly.
 #'
-#' @param type Either 'jwt' or 'oauth'. This can be set explicitly, but a best practice is
+#' @param type Either 'jwt' or 's2s' (default). This can be set explicitly, but a best practice is
 #' to run `cja_auth_with()` to set the authorization type as an environment variable before
 #' running `cja_auth()`
 #' @param ... Additional arguments passed to auth functions.
@@ -37,6 +37,8 @@ cja_auth <- function(type = 's2s', ...) {
     stop("Authentication type missing, please set an auth type with `cja_auth_with`")
   }
   type <- match.arg(type, c("jwt", "oauth", 's2s'))
+
+  cja_auth_with(type)
 
   switch(type,
          jwt = auth_jwt(...),
@@ -244,7 +246,7 @@ get_token_config <- function(client_id,
 #'
 #' @return List of length two with elements `client_id` and `client_secret`
 #' @noRd
-get_env_vars <- function(type = cja_auth_with('s2s')) {
+get_env_vars <- function(type = cja_auth_with()) {
   if(type == 'oauth' || type == 'jwt') {
     client_id <- .cjar$client_id
     client_secret <- .cjar$client_secret
@@ -311,6 +313,8 @@ auth_jwt <- function(file = Sys.getenv("CJA_AUTH_FILE"),
   }
 
   secrets <- jsonlite::fromJSON(file)
+
+  cja_auth_with('jwt')
 
   resp <- auth_jwt_gen(secrets = secrets, private_key = private_key, jwt_token = jwt_token)
 
@@ -465,6 +469,8 @@ auth_s2s <- function(file = Sys.getenv("CJA_AUTH_FILE"),
   secrets <- jsonlite::fromJSON(file)
 
   resp <- auth_s2s_gen(secrets = secrets, s2s_token = s2s_token)
+
+  cja_auth_with('s2s')
 
   # If successful
   message("Successfully authenticated with S2S: access token valid until ",
