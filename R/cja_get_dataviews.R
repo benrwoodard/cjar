@@ -61,7 +61,7 @@ cja_get_dataviews <- function(expansion = c('name'),
                          sortDirection = sortDirection,
                          sortProperty = sortProperty)
 
-    req_path <- 'datagroups/dataviews'
+    req_path <- 'data/dataviews'
 
     urlstructure <- paste(req_path, format_URL_parameters(query_params), sep = "?")
 
