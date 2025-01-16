@@ -7,18 +7,18 @@
 \title{\code{cjar} Package}
 \description{
 Connect to the 'CJA' API
-\url{https://www.adobe.io/cja-apis/docs} which powers 'CJA
+\url{https://developer.adobe.com/cja-apis/docs} which powers 'CJA
 Workspace'. The package was developed with the analyst in mind, and it will
 continue to be developed with the guiding principles of iterative,
 repeatable, timely analysis.
 }
 \author{
-\strong{Maintainer}: Ben Woodard \email{ben.woodard@searchdiscovery.com}
+\strong{Maintainer}: Ben Woodard \email{benrwoodard@gmail.com}
 
 Other contributors:
 \itemize{
   \item Charles Gallagher \email{charlesjgallagher15@gmail.com} [contributor]
-  \item Search Discovery, LLC [copyright holder]
+  \item Braxton Butcher \email{braxton.butcher@gofurther.com} [contributor]
 }
 
 }

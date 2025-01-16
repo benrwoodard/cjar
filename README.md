@@ -19,7 +19,7 @@ with the guiding principles of iterative, repeatable, timely analysis.
 New features are actively being developed and we value your feedback and
 contribution to the process. Please submit bugs, questions, and
 enhancement requests as [issues in this Github
-repository](https://github.com/searchdiscovery/cjar/issues).
+repository](https://github.com/benrwoodard/cjar/issues).
 
 ### Install the package (recommended)
 
@@ -35,26 +35,31 @@ repository](https://github.com/searchdiscovery/cjar/issues).
     install.packages("devtools")
 
     # Install adobeanayticsr from github
-    devtools::install_github('searchdiscovery/cjar') 
+    devtools::install_github('benrwoodard/cjar') 
 
     # Load the package
     library(cjar) 
 
 ### Current setup process overview
 
+**A note about JWT Authentication: Service Account (JWT) credentials
+have been deprecated in favor of the OAuth Server-to-Server credentials.
+Your projects using the Service Account (JWT) credentials will stop
+working after Jan 27, 2025.**
+
 There are four setup steps required to start accessing your Customer
-Journey Analytics data. The following steps are each outlined in greater
-detail in the following sections:
+Journey Analytics data using Server-to-Server (S2S) OAuth. The following
+steps are each outlined in greater detail in the following sections:
 
 1.  Create an Adobe Console API Project
-2.  Create and add the JWT arguments to your `.Renviron` file.
-3.  Get your authorization token by using the function `cja_auth()`.
-4.  Get the `Data View ID` by using the function `cja_get_dataviews()`.
+2.  Set up the `.Renviron` file
+3.  Get your access token using `cja_auth()`.
+4.  Get the Data View ID using `cja_get_dataviews()`.
 
 #### 1. Create an Adobe Console API Project
 
-When using JWT authentication, you only need an Adobe Console API
-project for each organization you are needing to access.
+When using S2S authentication, you need an Adobe Console API project for
+each organization you are needing to access.
 
 Once you are a developer for a CJA product profile, you can create an
 API client in the Adobe Developer Console.
@@ -65,34 +70,28 @@ API client in the Adobe Developer Console.
 3.  Click Create new project.
 4.  Click Add API.
 5.  Click Customer Journey Analytics, then click Next.
-6.  Click Generate Keypair.
-7.  A config.zip file is automatically downloaded to your local machine.
-    Keep this config folder in a secure location, as it contains your
-    only copy of your private key. See steps … for what to do with the
-    private.key file.
-8.  Click Next.
-9.  Select the desired product profiles for the service account. Make
-    sure that it contains the right permissions to access the API. Click
-    Save configured API.
-10. Back on the project’s home page, click Add to project > API.
-11. Click Adobe Experience Platform, then click Next.
-12. You already generated a keypair when creating the Adobe Analytics
-    API, so you do not need to create another. Click Next.
+6.  OAuth Server-to-Server should be selected.
+7.  Click Next.
+8.  Select “Full CJA Access”
+9.  Click Save configured API.
+10. Back on the project’s home page, click Add to project \> API.
+11. Click Experience Platform API, then click Next.
+12. You already generated a S2S when creating the CJA API, so you do not
+    need to create another. Click Next.
 13. Select the desired product profiles for the service account. Make
     sure that it contains the right permissions to access the API. Click
     Save configured API.
-14. Click on “Service Account (JWT)” under “CREDENTIALS” in the left
+14. Click on “OAuth Server-to-Server” under “CREDENTIALS” in the left
     column. Locate the “Download JSON” button on the top right and click
-    it to download the service account JSON file. Alternatively, you can
-    manually create this file by copying and pasting the Client ID,
-    Client Secret (click “Retrieve client secret”), Technical Account
-    ID, and Organization ID into a `.json` file. Reference `?cja_auth`
-    for more information on the variables needed. Using the
-    preconfigured JSON file is the easiest method.
-15. Locate the config.zip file that automatically downloaded in step 6.
-    Unzip the file and move the ‘private.zip’ to your desired location.
-    The location of this file will be needed as the value of the
-    **CJA_PRIVATE_KEY** variable.
+    it to download the JSON file. Alternatively, you can manually create
+    this file by copying and pasting the Client ID, Client Secret (click
+    “Retrieve client secret”), Technical Account ID, and Organization ID
+    into a `.json` file. Reference `?cja_auth` for more information on
+    the variables needed. Using the preconfigured JSON file is the
+    easiest method.
+15. Locate the JSON file that automatically downloaded in the previous
+    step and move it to your desired location. The location of this file
+    will be needed as the value of the **CJA_AUTH_FILE** variable.
 
 #### 2. Set up the .Renviron file
 
@@ -110,18 +109,16 @@ to every function call.
     [“usethis”](https://usethis.r-lib.org/reference/edit.html) package
     to create the file by running the function
     `edit_r_environ(scope = "user")`
-2.  Add the 2 variables, listed below, to the `.Renviron` file using the
-    file location path for both, the json (auth) file and the private
-    key file. The format of variables in the `.Renviron` file is
-    straightforward.
+2.  Add the variable, listed below, to the `.Renviron` file using the
+    file location path of the JSON file. The format of variables in the
+    `.Renviron` file is straightforward.
 
 <!-- -->
 
-    ## JWT creds ##
+    ## S2S creds ##
     CJA_AUTH_FILE=filelocation.json
-    CJA_PRIVATE_KEY=private.key
 
-After adding these 2 variables to the `.Renviron` file and saving it,
+After adding this variable to the `.Renviron` file and saving it,
 restart your R session (**Session \> Restart R** in RStudio) and reload
 the package (`library(cjar)`).
 
@@ -132,9 +129,15 @@ ultimately enables you to access your data:
 
 1.  In the console, enter `cja_auth()` and press *Enter*.
 2.  In the Console window you should see “Successfully authenticated
-    with JWT: access token valid until ….”
+    with S2S: access token valid until ….”
 3.  If you do not see this message then go back and repeat the previous
     steps to make sure you did not miss something.
+
+***note:** If you get the following response it is due to not having the
+Experience Platform API added to the project.*
+
+    "error_code": "403027",
+    "message": "User region is missing"
 
 #### 4. Get the Data View ID
 

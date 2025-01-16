@@ -7,9 +7,9 @@
 cja_freeform_table(
   dataviewId = Sys.getenv("CJA_DATAVIEW_ID"),
   date_range = c(Sys.Date() - 30, Sys.Date() - 1),
-  dimensions = c("page", "lasttouchchannel", "mobiledevicetype"),
+  dimensions = c("daterangeday"),
   metrics = c("visits", "visitors"),
-  top = c(5),
+  top = c(0),
   page = 0,
   filterType = "breakdown",
   segmentId = NA,
@@ -120,7 +120,7 @@ breakdowns of the data--the more queries are required. As a result, the \emph{or
 have a dramatic impact on the total query time, even if the resulting data is essentially identical.
 
 One way to understand this is to consider how much dragging and dropping would be required to return the
-data in Analysis Workspace \emph{if you were not able to <Shift>-<click> to highlight multiple values before
+data in Analysis Workspace \emph{if you were not able to "Shift"-"click" to highlight multiple values before
 dragging a new dimension to break down existing values}.
 
 Consider a scenario where you are pulling metrics for the last 30 days (\code{daterangeday}) for \strong{Mobile Device Type}

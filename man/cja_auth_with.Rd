@@ -6,14 +6,14 @@
 \alias{cja_auth_name}
 \title{Set authorization options}
 \usage{
-cja_auth_with(type)
+cja_auth_with(type = "s2s")
 
 cja_auth_path(path)
 
 cja_auth_name(name)
 }
 \arguments{
-\item{type}{The authorization type: 'oauth' or 'jwt'}
+\item{type}{The authorization type: 's2s'}
 
 \item{path}{The location for the cached authorization token. It should be a
 directory, rather than a filename. If this option is not set, the current

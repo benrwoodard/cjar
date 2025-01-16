@@ -12,6 +12,6 @@
 #'   \item{arg}{specifies what argument to use when building the segment verb function}
 #'   ...
 #' }
-#' @source \url{https://experienceleague.adobe.com/docs/analytics-platform/using/cja-components/cja-filters/operators.html?lang=en}
+#' @source \url{https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-components/cja-filters/operators}
 "filter_verbs"
 
