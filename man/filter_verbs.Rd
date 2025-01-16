@@ -17,7 +17,7 @@ string, list, glob, number, or exists}
 }
 }
 \source{
-\url{https://experienceleague.adobe.com/docs/analytics-platform/using/cja-components/cja-filters/operators.html?lang=en}
+\url{https://experienceleague.adobe.com/en/docs/analytics-platform/using/cja-components/cja-filters/operators}
 }
 \usage{
 filter_verbs
