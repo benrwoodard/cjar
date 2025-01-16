@@ -1,7 +1,7 @@
 #' `cjar` Package
 #'
 #' Connect to the 'CJA' API
-#' <https://www.adobe.io/cja-apis/docs> which powers 'CJA
+#' <https://developer.adobe.com/cja-apis/docs> which powers 'CJA
 #' Workspace'. The package was developed with the analyst in mind, and it will
 #' continue to be developed with the guiding principles of iterative,
 #' repeatable, timely analysis.

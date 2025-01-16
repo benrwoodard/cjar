@@ -19,7 +19,7 @@ with the guiding principles of iterative, repeatable, timely analysis.
 New features are actively being developed and we value your feedback and
 contribution to the process. Please submit bugs, questions, and
 enhancement requests as [issues in this Github
-repository](https://github.com/searchdiscovery/cjar/issues).
+repository](https://github.com/benrwoodard/cjar/issues).
 
 ### Install the package (recommended)
 
