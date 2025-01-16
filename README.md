@@ -7,11 +7,13 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+[![“Buy Me A
+Coffee”](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/benrwoodard)
 <!-- badges: end -->
 
 <img src="man/figures/logo.png" align="right" width = "200"/>
 
-## An R Client for the CJA API
+## An R Client for the Adobe CJA API
 
 Connect to the CJA API, which powers CJA Workspace. The package was
 developed with the analyst in mind and will continue to be developed
@@ -45,7 +47,8 @@ repository](https://github.com/benrwoodard/cjar/issues).
 **A note about JWT Authentication: Service Account (JWT) credentials
 have been deprecated in favor of the OAuth Server-to-Server credentials.
 Your projects using the Service Account (JWT) credentials will stop
-working after Jan 27, 2025.**
+working after June 30, 2025. See Adobe’s documentation for [more
+information](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/migration/).**
 
 There are four setup steps required to start accessing your Customer
 Journey Analytics data using Server-to-Server (S2S) OAuth. The following
