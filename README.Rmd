@@ -21,9 +21,9 @@ knitr::opts_chunk$set(
 
 <img src="man/figures/logo.png" align="right" width = "200"/>
 
-## An R Client for the CJA API
+## An R Client for the Adobe CJA API
 
-Connect to the CJA API, which powers CJA Workspace. The package was developed with the analyst in mind and will continue to be developed with the guiding principles of iterative, repeatable, timely analysis. New features are actively being developed and we value your feedback and contribution to the process. Please submit bugs, questions, and enhancement requests as [issues in this Github repository](https://github.com/searchdiscovery/cjar/issues).
+Connect to the CJA API, which powers CJA Workspace. The package was developed with the analyst in mind and will continue to be developed with the guiding principles of iterative, repeatable, timely analysis. New features are actively being developed and we value your feedback and contribution to the process. Please submit bugs, questions, and enhancement requests as [issues in this Github repository](https://github.com/benrwoodard/cjar/issues).
   
 ### Install the package (recommended)
 
@@ -50,7 +50,7 @@ library(cjar)
 
 ### Current setup process overview
 
-**A note about JWT Authentication: Service Account (JWT) credentials have been deprecated in favor of the OAuth Server-to-Server credentials. Your projects using the Service Account (JWT) credentials will stop working after Jan 27, 2025.**
+**A note about JWT Authentication: Service Account (JWT) credentials have been deprecated in favor of the OAuth Server-to-Server credentials. Your projects using the Service Account (JWT) credentials will stop working after June 30, 2025. See Adobe's documentation for [more information](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/migration/).**
 
 There are four setup steps required to start accessing your Customer Journey Analytics data using Server-to-Server (S2S) OAuth. The following steps are each outlined in greater detail in the following sections:
 

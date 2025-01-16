@@ -13,11 +13,12 @@ continue to be developed with the guiding principles of iterative,
 repeatable, timely analysis.
 }
 \author{
-\strong{Maintainer}: Ben Woodard \email{ben.woodard@searchdiscovery.com}
+\strong{Maintainer}: Ben Woodard \email{benrwoodard@gmail.com}
 
 Other contributors:
 \itemize{
   \item Charles Gallagher \email{charlesjgallagher15@gmail.com} [contributor]
+  \item Braxton Butcher \email{braxton.butcher@gofurther.com} [contributor]
 }
 
 }

@@ -25,7 +25,7 @@ auth_oauth(
 )
 }
 \arguments{
-\item{type}{Either 'jwt' or 'oauth'. This can be set explicitly, but a best practice is
+\item{type}{Either 'jwt' or 's2s' (default). This can be set explicitly, but a best practice is
 to run \code{cja_auth_with()} to set the authorization type as an environment variable before
 running \code{cja_auth()}}
 
@@ -57,7 +57,7 @@ Defaults to the value of the \code{httr_oob_default} default, or TRUE if
 The path of the cached token. This is returned invisibly.
 }
 \description{
-\strong{Note:} \code{cja_auth()} is the primary function used for authorization. \code{auth_oauth()}
+\strong{Note:} \code{cja_auth()} is the primary function used for authorization. \code{auth_s2s()}
 and \code{auth_jwt()} should typically not be called directly.
 }
 \section{Functions}{
