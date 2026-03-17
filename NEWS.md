@@ -1,3 +1,7 @@
+# cjar 0.2.1
+
+* adding 'id' as a global variable to compensate for a change in a dependent package
+
 # cjar 0.2.0
 
 * added auth_s2s() and overall auth support for Server to Server OAuth authentication support which 
