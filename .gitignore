@@ -8,3 +8,6 @@
 /testingdocs
 *.DS_Store
 */.DS_Store
+cjar.Rcheck/
+cjar*.tar.gz
+cjar*.tgz
