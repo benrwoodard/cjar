@@ -14,3 +14,4 @@
 ^cjar\.Rcheck$
 ^cjar.*\.tar\.gz$
 ^cjar.*\.tgz$
+^project\.Rproj$
