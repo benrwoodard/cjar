@@ -48,7 +48,7 @@ repository](https://github.com/benrwoodard/cjar/issues).
 have been deprecated in favor of the OAuth Server-to-Server credentials.
 Your projects using the Service Account (JWT) credentials will stop
 working after June 30, 2025. See Adobe’s documentation for [more
-information](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/migration/).**
+information](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/migration).**
 
 There are four setup steps required to start accessing your Customer
 Journey Analytics data using Server-to-Server (S2S) OAuth. The following
