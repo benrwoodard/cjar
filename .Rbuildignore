@@ -11,3 +11,7 @@
 ^cran-comments\.md$
 ^pkgdown
 ^DS_Store
+^cjar\.Rcheck$
+^cjar.*\.tar\.gz$
+^cjar.*\.tgz$
+^project\.Rproj$
